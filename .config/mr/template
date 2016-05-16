@@ -1,0 +1,6 @@
+[$HOME/.config/vcsh/repo.d/<repo>.git]
+checkout = vcsh clone git@bitbucket.org:stefanlendl/<repo>.git <repo>
+update   = vcsh <repo> pull
+push     = vcsh <repo> push
+status   = vcsh <repo> status
+gc       = vcsh <repo> gc
