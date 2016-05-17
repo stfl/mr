@@ -1,5 +1,9 @@
 [$HOME/.config/vcsh/repo.d/zsh.frq.git]
-checkout = vcsh clone git@bitbucket.org:stefanlendl/zsh.frq.git zsh.frq
+checkout =
+   vcsh clone git@bitbucket.org:stefanlendl/zsh.frq.git || vcsh zsh.frq checkout master --force
+   vcsh zsh.frq config branch.master.remote origin
+   vcsh zsh.frq config branch.master.merge refs/heads/master
+   vcsh write-gitignore zsh.frq
 update   = vcsh zsh.frq pull
 push     = vcsh zsh.frq push
 status   = vcsh zsh.frq status

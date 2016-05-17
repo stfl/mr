@@ -1,5 +1,9 @@
 [$HOME/.config/vcsh/repo.d/tmux.git]
-checkout = vcsh clone git@bitbucket.org:stefanlendl/tmux.git tmux
+checkout =
+   vcsh clone git@bitbucket.org:stefanlendl/tmux.git || vcsh tmux checkout master --force
+   vcsh tmux config branch.master.remote origin
+   vcsh tmux config branch.master.merge refs/heads/master
+   vcsh write-gitignore tmux
 update   = vcsh tmux pull
 push     = vcsh tmux push
 status   = vcsh tmux status

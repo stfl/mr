@@ -1,5 +1,9 @@
 [$HOME/.config/vcsh/repo.d/git.git]
-checkout = vcsh clone git@bitbucket.org:stefanlendl/git.git git
+checkout =
+   vcsh clone git@bitbucket.org:stefanlendl/git.git || vcsh git checkout master --force
+   vcsh git config branch.master.remote origin
+   vcsh git config branch.master.merge refs/heads/master
+   vcsh write-gitignore git
 update   = vcsh git pull
 push     = vcsh git push
 status   = vcsh git status

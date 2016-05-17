@@ -1,6 +1,18 @@
 [$HOME/.config/vcsh/repo.d/zsh.git]
-checkout = vcsh clone git@bitbucket.org:stefanlendl/zsh.git zsh
+checkout = 
+   vcsh clone git@bitbucket.org:stefanlendl/zsh.git || vcsh zsh checkout master --force
+   vcsh zsh config branch.master.remote origin
+   vcsh zsh config branch.master.merge refs/heads/master
+   vcsh write-gitignore zsh
 update   = vcsh zsh pull
 push     = vcsh zsh push
 status   = vcsh zsh status
 gc       = vcsh zsh gc
+
+[/home/stefan/.local/repos/fasd/]
+checkout = git clone https://github.com/clvv/fasd $HOME/.local/repos/fasd
+update   = git pull
+push     = git push
+status   = git status
+gc       = git gc
+

@@ -1,5 +1,9 @@
 [$HOME/.config/vcsh/repo.d/vim.git]
-checkout = vcsh clone git@bitbucket.org:stefanlendl/vim.git vim
+checkout =
+   vcsh clone git@bitbucket.org:stefanlendl/vim.git || vcsh vim checkout master --force
+   vcsh vim config branch.master.remote origin
+   vcsh vim config branch.master.merge refs/heads/master
+   vcsh write-gitignore vim
 update   = vcsh vim pull
 push     = vcsh vim push
 status   = vcsh vim status
