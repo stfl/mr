@@ -9,7 +9,7 @@ push     = vcsh zsh push
 status   = vcsh zsh status
 gc       = vcsh zsh gc
 
-[/home/stefan/.local/repos/fasd/]
+[$HOME/.local/repos/fasd/]
 checkout = git clone https://github.com/clvv/fasd $HOME/.local/repos/fasd
 update   = git pull
 push     = git push
