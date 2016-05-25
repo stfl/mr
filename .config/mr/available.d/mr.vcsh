@@ -1,10 +1,16 @@
 [$HOME/.config/vcsh/repo.d/mr.git]
 checkout =
-   vcsh clone git@bitbucket.org:stefanlendl/mr.git
-   vcsh mr config branch.master.remote origin
-   vcsh mr config branch.master.merge refs/heads/master
-   vcsh write-gitignore mr
-update   = vcsh mr pull
+  vcsh clone git@bitbucket.org:stefanlendl/mr.git
+  vcsh mr config branch.master.remote origin
+  vcsh mr config branch.master.merge refs/heads/master
+  vcsh write-gitignore mr
+update   =
+  vcsh mr pull
+  vcsh mr config branch.master.remote origin
+  vcsh mr config branch.master.merge refs/heads/master
+  vcsh write-gitignore mr
+# to set the relevant config afterwards
+
 push     = vcsh mr push
 status   = vcsh mr status
 gc       = vcsh mr gc

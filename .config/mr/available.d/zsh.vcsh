@@ -12,7 +12,16 @@ gc       = vcsh zsh gc
 [$HOME/.local/repos/fasd/]
 checkout = git clone https://github.com/clvv/fasd $HOME/.local/repos/fasd
 update   = git pull
-push     = git push
-status   = git status
-gc       = git gc
+push     = return 1 # read-only
 
+
+["${ZDOTDIR:-$HOME}/.zprezto"]
+checkout =
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  setopt EXTENDED_GLOB           # if zsh
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
+update  = git pull && git submodule update --init --recursive
+push    = return 1 # read-only
+order   = 5
