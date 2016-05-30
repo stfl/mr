@@ -1,5 +1,5 @@
 [DEFAULT]
 git_gc = git gc "$@"
-jobs = 5
+jobs = 10
 
 include = cat ${XDG_CONFIG_HOME:-$HOME/.config}/mr/config.d/*
