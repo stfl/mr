@@ -8,3 +8,8 @@ update   = vcsh tmux pull
 push     = vcsh tmux push
 status   = vcsh tmux status
 gc       = vcsh tmux gc
+
+[$HOME/.tmux/plugins/tpm]
+checkout = git clone https://github.com/tmux-plugins/tpm
+update   = git pull
+push     = return 1 # read-only
