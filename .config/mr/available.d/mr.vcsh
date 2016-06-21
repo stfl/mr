@@ -5,7 +5,7 @@ checkout =
   vcsh mr config branch.master.merge refs/heads/master
   vcsh write-gitignore mr
 update   =
-  vcsh mr pull
+  vcsh mr pull --rebase
   vcsh mr config branch.master.remote origin
   vcsh mr config branch.master.merge refs/heads/master
   vcsh write-gitignore mr

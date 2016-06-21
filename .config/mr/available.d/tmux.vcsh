@@ -4,7 +4,7 @@ checkout =
    vcsh tmux config branch.master.remote origin
    vcsh tmux config branch.master.merge refs/heads/master
    vcsh write-gitignore tmux
-update   = vcsh tmux pull
+update   = vcsh tmux pull --rebase
 push     = vcsh tmux push
 status   = vcsh tmux status
 gc       = vcsh tmux gc

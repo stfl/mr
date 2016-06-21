@@ -4,7 +4,7 @@ checkout =
    vcsh git config branch.master.remote origin
    vcsh git config branch.master.merge refs/heads/master
    vcsh write-gitignore git
-update   = vcsh git pull
+update   = vcsh git pull --rebase
 push     = vcsh git push
 status   = vcsh git status
 gc       = vcsh git gc
