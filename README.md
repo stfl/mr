@@ -13,6 +13,6 @@ chsh -s $(which zsh)
 ### root config
 
 ```
-sudo ln $HOME/\{.zprezto,.zpreztorc,.zprofile,.zshrc,.vim,.vimrc} /root -sf
+sudo ln $HOME/{.zprezto,.zpreztorc,.zprofile,.zshrc,.vim,.vimrc} /root -sf
 sudo ln -s $HOME/.config/{nvim,dircolors.256dark} /root/.config
 ```
