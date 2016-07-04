@@ -2,8 +2,8 @@
 
 ```
 sudo apt install vcsh myrepos git vim tmux ctags terminator clang python-pip python-dev python3-pip
-pip2 install neovim
-pip3 install neovim
+sudo pip2 install neovim
+sudo pip3 install neovim
 
 vcsh clone git@bitbucket.org:stefanlendl/mr.git
 mr up
