@@ -1,7 +1,7 @@
 ## FULL SYSTEM SETUP
 
 ```
-sudo apt install vcsh myrepos git vim tmux ctags terminator clang python-pip python3-pip
+sudo apt install vcsh myrepos git vim tmux ctags terminator clang python-pip python-dev python3-pip
 pip2 install neovim
 pip3 install neovim
 
