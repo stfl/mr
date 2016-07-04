@@ -4,7 +4,25 @@ checkout =
    vcsh vim config branch.master.remote origin
    vcsh vim config branch.master.merge refs/heads/master
    vcsh write-gitignore vim
+   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+   vim +NeoBundleInstall
+
 update   = vcsh vim pull --rebase
 push     = vcsh vim push
 status   = vcsh vim status
 gc       = vcsh vim gc
+
+[$HOME/.config/nvim/bundle/vimproc.vim]
+checkout = git clone https://github.com/Shougo/vimproc.vim.git
+   (cd $HOME/.config/nvim/bundle/vimproc.vim; make)
+push    = return 0 # read-only
+order   = 5
+
+[$HOME/.local/repos/fonts]
+checkout =
+   git clone https://github.com/powerline/fonts.git
+   $HOME/.local/repos/fonts/install.sh
+push    = return 0 # read-only
+update  =
+   git pull origin master
+   $HOME/.local/repos/fonts/install.sh
