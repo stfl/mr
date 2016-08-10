@@ -13,3 +13,17 @@ gc       = vcsh tmux gc
 checkout = git clone https://github.com/tmux-plugins/tpm
 update   = git pull
 push     = return 0 # read-only
+
+[$HOME/.local/repos/tmux-mem-cpu-load]
+checkout =
+   git clone https://github.com/thewtex/tmux-mem-cpu-load/
+   cd $HOME/.local/repos/tmux-mem-cpu-load
+   cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/.local/ . &&\
+   make && make install
+update   =
+   git pull
+   cmake -DCMAKE_INSTALL_PREFIX:PATH=$HOME/.local/ . &&\
+   make && make install
+push     = return 0 # read-only
+status   = return 0
+diff     = return 0
