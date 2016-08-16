@@ -6,5 +6,5 @@ checkout =
    vcsh write-gitignore git
 update   = vcsh git pull --rebase
 push     = vcsh git push
-status   = vcsh git status
+status   = vcsh git status --short
 gc       = vcsh git gc

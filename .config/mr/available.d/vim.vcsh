@@ -6,10 +6,11 @@ checkout =
    vcsh write-gitignore vim
    curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
    vim +NeoBundleInstall
-
-update   = vcsh vim pull --rebase
+update   =
+   vcsh vim pull --rebase
+   vcsh write-gitignore vim
 push     = vcsh vim push
-status   = vcsh vim status
+status   = vcsh vim status --short
 gc       = vcsh vim gc
 
 [$HOME/.config/nvim/bundle/vimproc.vim]
@@ -26,3 +27,4 @@ push    = return 0 # read-only
 update  =
    git pull origin master
    $HOME/.local/repos/fonts/install.sh
+

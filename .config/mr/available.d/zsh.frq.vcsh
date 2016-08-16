@@ -4,7 +4,9 @@ checkout =
    vcsh zsh.frq config branch.master.remote origin
    vcsh zsh.frq config branch.master.merge refs/heads/master
    vcsh write-gitignore zsh.frq
-update   = vcsh zsh.frq pull --rebase
+update   =
+   vcsh zsh.frq pull --rebase
+   vcsh write-gitignore zsh.frq
 push     = vcsh zsh.frq push
-status   = vcsh zsh.frq status
+status   = vcsh zsh.frq status --short
 gc       = vcsh zsh.frq gc

@@ -10,7 +10,6 @@ update   =
   vcsh mr config branch.master.merge refs/heads/master
   vcsh write-gitignore mr
 # to set the relevant config afterwards
-
 push     = vcsh mr push
-status   = vcsh mr status
+status   = vcsh mr status --short
 gc       = vcsh mr gc

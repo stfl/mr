@@ -4,9 +4,11 @@ checkout =
    vcsh tmux config branch.master.remote origin
    vcsh tmux config branch.master.merge refs/heads/master
    vcsh write-gitignore tmux
-update   = vcsh tmux pull --rebase
+update   =
+   vcsh tmux pull --rebase
+   vcsh write-gitignore tmux
 push     = vcsh tmux push
-status   = vcsh tmux status
+status   = vcsh tmux status --short
 gc       = vcsh tmux gc
 
 [$HOME/.tmux/plugins/tpm]
