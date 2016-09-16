@@ -1,11 +1,8 @@
 [$HOME/.config/vcsh/repo.d/vim.git]
 checkout =
    vcsh clone git@bitbucket.org:stefanlendl/vim.git || vcsh vim checkout master --force
-   vcsh vim config branch.master.remote origin
-   vcsh vim config branch.master.merge refs/heads/master
-   vcsh write-gitignore vim
-   curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-   vim +NeoBundleInstall
+   # curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+   # vim +NeoBundleInstall
 update   =
    vcsh vim pull --rebase
    vcsh write-gitignore vim

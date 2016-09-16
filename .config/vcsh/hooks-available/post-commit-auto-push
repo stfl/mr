@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "running post-commit hook"
+git push origin master

@@ -1,0 +1,2 @@
+#!/bin/sh
+vcsh write-gitignore $VCSH_DIRECTORY

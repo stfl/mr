@@ -1,12 +1,8 @@
 [$HOME/.config/vcsh/repo.d/zsh.git]
 checkout = 
    vcsh clone git@bitbucket.org:stefanlendl/zsh.git || vcsh zsh checkout master --force
-   vcsh zsh config branch.master.remote origin
-   vcsh zsh config branch.master.merge refs/heads/master
-   vcsh write-gitignore zsh
 update   =
    vcsh zsh pull --rebase
-   vcsh write-gitignore zsh
 push     = vcsh zsh push
 status   = vcsh zsh status --short
 gc       = vcsh zsh gc
