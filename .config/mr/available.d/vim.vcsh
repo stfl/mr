@@ -13,9 +13,15 @@ push     = vcsh vim push
 status   = vcsh vim status --short
 gc       = vcsh vim gc
 
-[$HOME/.config/nvim/bundle/vimproc.vim]
+[$HOME/.config/nvim/dein.vim/repos/github.com/Shougo/vimproc.vim]
 checkout = git clone https://github.com/Shougo/vimproc.vim.git
-   (cd $HOME/.config/nvim/bundle/vimproc.vim; make)
+   (cd $HOME/.config/nvim/dein.vim/repos/github.com/Shougo/vimproc.vim; make)
+push    = return 0 # read-only
+order   = 5
+
+[$HOME/.config/nvim/dein.vim/repos/github.com/Shougo/dein.vim]
+checkout =
+   git clone https://github.com/Shougo/dein.vim
 push    = return 0 # read-only
 order   = 5
 
