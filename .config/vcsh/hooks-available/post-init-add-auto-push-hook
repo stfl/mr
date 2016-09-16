@@ -1,3 +1,4 @@
 #!/bin/sh
 
-ln -sf $XDG_CONFIG_HOME/vcsh/$VCSH_DIRECTORY/hooks/post-commit ../../hooks-available/post-commit-auto-push
+echo ln -sf  ../../hooks-available/post-commit-auto-push $HOME/.config/vcsh/repo.d/${VCSH_DIRECTORY}.git/hooks/post-commit
+ln -sf  ../../../hooks-available/post-commit-auto-push $HOME/.config/vcsh/repo.d/${VCSH_DIRECTORY}.git/hooks/post-commit
