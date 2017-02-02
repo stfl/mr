@@ -1,12 +1,13 @@
 ## FULL SYSTEM SETUP
 
 ```
-sudo apt install vcsh myrepos git vim tmux ctags terminator clang python-pip python-dev python3-pip
+sudo apt install vcsh myrepos git vim neovim tmux ctags terminator clang python-pip python-dev python3-pip
+# python-neovim python2-neovim pyenv-virtualenv
 sudo pip2 install neovim
 sudo pip3 install neovim
 
 vcsh clone git@bitbucket.org:stefanlendl/mr.git
-~/.local/bin/mr_conf.sh # edit which dotfiles should be pulled in
+~/.local/bin/mr_conf.sh          # edit which dotfiles should be pulled in
 mr up
 chsh -s $(which zsh)
 ```
