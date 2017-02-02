@@ -6,6 +6,7 @@ sudo pip2 install neovim
 sudo pip3 install neovim
 
 vcsh clone git@bitbucket.org:stefanlendl/mr.git
+# edit which dotfiles should be pulled with ~/.local/bin/mr_conf.sh
 mr up
 chsh -s $(which zsh)
 ```
