@@ -2,7 +2,7 @@
 
 ```
 sudo apt install vcsh myrepos git vim neovim tmux ctags cscope terminator clang python-pip python-dev python3-pip
-# python-neovim python2-neovim pyenv-virtualenv
+# python-neovim python2-neovim pyenv-virtualenv the_silver_searcher
 sudo pip2 install neovim
 sudo pip3 install neovim
 
