@@ -6,3 +6,11 @@ update   =
 push     = vcsh zsh.frq push
 status   = vcsh zsh.frq status --short
 gc       = return 0
+
+
+[$HOME/.local/repos/Plugin-ReleaseNotes]
+checkout = 
+   git svn clone http://svn.frequentis.frq/components/systemsw/software/dev-env/vim/trunk/Plugin-ReleaseNotes
+update   = git svn fetch
+push     = return 0
+gc       = return 0
