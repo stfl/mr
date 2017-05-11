@@ -14,8 +14,14 @@ checkout =
 update   = git svn fetch
 gc       = return 0
 
-[$HOME/.local/repos/svn-scripts]
+[$HOME/.local/repos/frq/svn-scripts]
 checkout = 
-   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/svn-scripts/tags svn-scripts
+   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/svn-scripts/trunk svn-scripts
+update   = svn update
+gc       = return 0
+
+[$HOME/.local/repos/frq/build_env]
+checkout = 
+   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/build_environment/trunk/build_env
 update   = svn update
 gc       = return 0
