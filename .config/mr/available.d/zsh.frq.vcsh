@@ -12,5 +12,10 @@ gc       = return 0
 checkout = 
    git svn clone http://svn.frequentis.frq/components/systemsw/software/dev-env/vim/trunk/Plugin-ReleaseNotes
 update   = git svn fetch
-push     = return 0
+gc       = return 0
+
+[$HOME/.local/repos/svn-scripts]
+checkout = 
+   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/svn-scripts/tags svn-scripts
+update   = svn update
 gc       = return 0
