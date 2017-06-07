@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "running post-commit hook"
+
+if ssh -T git@github.com 2>&1 | grep -q successfully; then
+   git push origin master
+else
+   git push github_https master
+fi
+
