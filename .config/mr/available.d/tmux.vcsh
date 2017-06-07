@@ -1,9 +1,25 @@
 [$HOME/.config/vcsh/repo.d/tmux.git]
 checkout =
-   vcsh clone git@bitbucket.org:stefanlendl/tmux.git || vcsh tmux checkout master --force
+   vcsh clone git@github.com:stfl/tmux.git || vcsh tmux checkout master --force
+   vcsh tmux remote add github_https https://github.com/stfl/tmux.git
+   ln -sf ${HOME}/.config/tmux/post-commit ${HOME}/.config/vcsh/repo.d/tmux.git/hooks/
+   vcsh write-gitignore tmux
+
 update   =
-   vcsh tmux pull --rebase
-push     = vcsh tmux push
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh tmux pull origin master --rebase
+   else
+      vcsh tmux pull github_https master --rebase
+   fi
+   vcsh write-gitignore vcs
+
+push     =
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh tmux push origin master
+   else
+      vcsh tmux push github_https master
+   fi
+
 status   = vcsh tmux status --short
 gc       = vcsh tmux gc
 

@@ -1,9 +1,25 @@
 [$HOME/.config/vcsh/repo.d/zsh.git]
-checkout = 
-   vcsh clone git@bitbucket.org:stefanlendl/zsh.git || vcsh zsh checkout master --force
+checkout =
+   vcsh clone git@github.com:stfl/zsh.git || vcsh zsh checkout master --force
+   vcsh zsh remote add github_https https://github.com/stfl/zsh.git
+   ln -sf ${HOME}/.config/zsh/post-commit ${HOME}/.config/vcsh/repo.d/zsh.git/hooks/
+   vcsh write-gitignore zsh
+
 update   =
-   vcsh zsh pull --rebase
-push     = vcsh zsh push
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh zsh pull origin master --rebase
+   else
+      vcsh zsh pull github_https master --rebase
+   fi
+   vcsh write-gitignore vcs
+
+push     =
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh zsh push origin master
+   else
+      vcsh zsh push github_https master
+   fi
+
 status   = vcsh zsh status --short
 gc       = vcsh zsh gc
 

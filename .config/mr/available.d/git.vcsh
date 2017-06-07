@@ -1,7 +1,24 @@
-[$HOME/.config/vcsh/repo.d/git.git]
+[$HOME/.config/vcsh/repo.d/vcs.git]
 checkout =
-   vcsh clone git@bitbucket.org:stefanlendl/git.git || vcsh git checkout master --force
-update   = vcsh git pull --rebase
-push     = vcsh git push
-status   = vcsh git status --short
-gc       = vcsh git gc
+   vcsh clone git@github.com:stfl/vcs.git || vcsh vcs checkout master --force 
+   vcsh vcs remote add github_https https://github.com/stfl/vcs.git
+   ln -sf ${HOME}/.config/mr/post-commit ${HOME}/.config/vcsh/repo.d/vcs.git/hooks/
+   vcsh write-gitignore vcs
+
+update   = 
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh vcs pull origin master --rebase
+   else
+      vcsh vcs pull github_https master --rebase
+   fi
+   vcsh write-gitignore vcs
+
+push     =
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh vcs push origin master
+   else
+      vcsh vcs push github_https master
+   fi
+
+status   = vcsh vcs status --short
+gc       = vcsh vcs gc

@@ -1,9 +1,15 @@
 [$HOME/.config/vcsh/repo.d/zsh.frq.git]
 checkout =
    vcsh clone git@bitbucket.org:stefanlendl/zsh.frq.git || vcsh zsh.frq checkout master --force
+   echo "#\!/bin/sh\necho "running post-commit hook"\ngit push origin master" \
+         >| ~/.config/vcsh/repo.d/zsh.frq.git/hooks/post-commit
+   vcsh write-gitignore zsh.frq
+
 update   =
-   vcsh zsh.frq pull --rebase
-push     = vcsh zsh.frq push
+   vcsh zsh.frq pull origin master --rebase
+   vcsh write-gitignore vcs
+
+push     = vcsh zsh.frq push origin master
 status   = vcsh zsh.frq status --short
 gc       = return 0
 
