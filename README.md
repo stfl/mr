@@ -15,27 +15,27 @@ chsh -s $(which zsh)                   # zsh as default shell
 
 ## Dependencies
 
-zsh
-git
-vcsh
-myrepos
-vim || neovim
-tmux
+- zsh
+- git
+- vcsh
+- myrepos
+- vim || neovim
+- tmux
 
 ### Optional
 
-terminator
-clang
-ctags
-cscope
-ripgrep || the_silver_searcher (ag)
-python-dev
-python2-pip
-python3-pip
-python2-neovim
-python3-neovim
-pyenv
-...
+- terminator
+- clang
+- ctags
+- cscope
+- ripgrep || the_silver_searcher (ag)
+- python-dev
+- python2-pip
+- python3-pip
+- python2-neovim
+- python3-neovim
+- pyenv
+- ...
 
 ## root config
 
