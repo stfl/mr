@@ -7,7 +7,7 @@ checkout =
 
 update   =
    vcsh zsh.frq pull origin master --rebase
-   vcsh write-gitignore vcs
+   vcsh write-gitignore zsh.frq
 
 push     = vcsh zsh.frq push origin master
 status   = vcsh zsh.frq status --short
