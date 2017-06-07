@@ -1,20 +1,45 @@
-## FULL SYSTEM SETUP
+## Bootstrap the whole dotfile bundle
 
-```
-sudo apt install vcsh myrepos git vim neovim tmux ctags cscope terminator clang python-pip python-dev python3-pip
-# python-neovim python2-neovim pyenv-virtualenv the_silver_searcher
+```bash
+sudo apt install zsh vcsh myrepos git vim neovim tmux ctags cscope \
+   terminator clang python-pip python-dev python3-pip
+# python-neovim python2-neovim pyenv-virtualenv the_silver_searcher ripgrep
 sudo pip2 install neovim
 sudo pip3 install neovim
 
-vcsh clone git@bitbucket.org:stefanlendl/mr.git
-~/.local/bin/mr_conf.sh          # edit which dotfiles should be pulled in
-mr up
-chsh -s $(which zsh)
+vcsh clone git@github.com:stfl/mr.git  # check out the base for all my dotfiles
+~/.local/bin/mr_conf.sh                # edit which dotfiles should be pulled in
+mr up                                  # pull all dotfiles and some dependencies
+chsh -s $(which zsh)                   # zsh as default shell
 ```
 
-### root config
+## Dependencies
 
-```
-sudo ln $HOME/{.zprezto,.zpreztorc,.zprofile,.zshrc,.vim,.vimrc} /root -sf
-sudo ln -s $HOME/.config/{nvim,dircolors.256dark} /root/.config
+zsh
+git
+vcsh
+myrepos
+vim || neovim
+tmux
+
+### Optional
+
+terminator
+clang
+ctags
+cscope
+ripgrep || the_silver_searcher (ag)
+python-dev
+python2-pip
+python3-pip
+python2-neovim
+python3-neovim
+pyenv
+...
+
+## root config
+
+```bash
+sudo ln -sf $HOME/{.zprezto,.zpreztorc,.zprofile,.zshrc,.vim,.vimrc} /root
+sudo ln -sf $HOME/.config/{nvim,dircolors.256dark} /root/.config
 ```
