@@ -16,18 +16,40 @@ gc       = return 0
 
 [$HOME/.local/repos/Plugin-ReleaseNotes]
 checkout = 
-   git svn clone http://svn.frequentis.frq/components/systemsw/software/dev-env/vim/trunk/Plugin-ReleaseNotes
-update   = git svn fetch
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      git svn clone http://svn.frequentis.frq/components/systemsw/software/dev-env/vim/trunk/Plugin-ReleaseNotes
+   else
+      echo failed: frquentis svn not available
+   fi
+update   =
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      git svn fetch
+   fi
+push     = return 0 # read-only
 gc       = return 0
+
 
 [$HOME/.local/repos/frq/svn-scripts]
 checkout = 
-   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/svn-scripts/trunk svn-scripts
-update   = svn update
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/svn-scripts/trunk svn-scripts
+   fi
+update   =
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      svn update
+   fi
+push     = return 0 # read-only
 gc       = return 0
+
 
 [$HOME/.local/repos/frq/build_env]
 checkout = 
-   svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/build_environment/trunk/build_env
-update   = svn update
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      svn checkout http://svn.frequentis.frq/components/systemsw/software/dev-env/build_environment/trunk/build_env
+   fi
+update   =
+   if wget -S -t 1 -T 1 --spider 'http://svn.frequentis.frq/componets/systemsw' 2>&1 | grep -q "connected."; then
+      svn update
+   fi
+push     = return 0 # read-only
 gc       = return 0
