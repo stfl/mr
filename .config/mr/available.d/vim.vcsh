@@ -39,12 +39,4 @@ checkout =
 push    = return 0 # read-only
 order   = 5
 
-[$HOME/.local/repos/fonts]
-checkout =
-   git clone https://github.com/powerline/fonts.git
-   $HOME/.local/repos/fonts/install.sh
-push    = return 0 # read-only
-update  =
-   git pull origin master
-   $HOME/.local/repos/fonts/install.sh
 
