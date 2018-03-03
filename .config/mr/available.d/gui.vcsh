@@ -26,3 +26,20 @@ push     =
 
 status   = vcsh dotgui status --short
 gc       = vcsh dotgui gc
+
+[$HOME/.local/repos/nerd_fonts]
+checkout =
+   git clone https://github.com/powerline/fonts.git nerd_fonts --depth 1
+   $HOME/.local/repos/nerd_fonts/install.sh Anonymice
+   $HOME/.local/repos/nerd_fonts/install.sh Source\ Code\ Pro
+push    = return 0 # read-only
+update  =
+   git fetch origin
+   reslog=$(git log HEAD..origin/master --oneline)
+   if [[ "${reslog}" != "" ]] ; then
+      git pull --depth 1
+      $HOME/.local/repos/nerd_fonts/install.sh Anonymice
+      $HOME/.local/repos/nerd_fonts/install.sh Source\ Code\ Pro
+   else
+      echo Already up-to-date
+   fi
