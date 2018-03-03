@@ -1,24 +1,28 @@
 [$HOME/.config/vcsh/repo.d/dotgui.git]
 checkout =
-   vcsh clone git@github.com:stfl/dotgui.git || vcsh dotgui checkout master --force
-   vcsh dotgui remote add github_https https://github.com/stfl/dotgui.git
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh clone git@github.com:stfl/dotgui.git || vcsh dotgui checkout master --force
+   else
+      vcsh clone https://github.com/stfl/dotgui.git || vcsh dotgui checkout master --force
+   fi
+   # vcsh dotgui remote add github_https https://github.com/stfl/dotgui.git
    ln -sf ${HOME}/.config/dotgui/post-commit ${HOME}/.config/vcsh/repo.d/dotgui.git/hooks/
    vcsh write-gitignore dotgui
 
 update   =
-   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
       vcsh dotgui pull origin master --rebase
-   else
-      vcsh dotgui pull github_https master --rebase
-   fi
+   #else
+   #   vcsh dotgui pull github_https master --rebase
+   #fi
    vcsh write-gitignore dotgui
 
 push     =
-   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
       vcsh dotgui push origin master
-   else
-      vcsh dotgui push github_https master
-   fi
+   #else
+   #   vcsh dotgui push github_https master
+   #fi
 
 status   = vcsh dotgui status --short
 gc       = vcsh dotgui gc

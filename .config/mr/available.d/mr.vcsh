@@ -1,24 +1,28 @@
 [$HOME/.config/vcsh/repo.d/mr.git]
 checkout =
-   vcsh clone git@github.com:stfl/mr.git || vcsh mr checkout master --force
-   vcsh mr remote add github_https https://github.com/stfl/mr.git
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      vcsh clone git@github.com:stfl/mr.git || vcsh mr checkout master --force
+   else
+      vcsh clone https://github.com/stfl/mr.git || vcsh dotgui checkout master --force
+   fi
+   # vcsh mr remote add github_https https://github.com/stfl/mr.git
    ln -sf ${HOME}/.config/mr/post-commit ${HOME}/.config/vcsh/repo.d/mr.git/hooks/
    vcsh write-gitignore mr
 
 update   =
-   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
       vcsh mr pull origin master --rebase
-   else
-      vcsh mr pull github_https master --rebase
-   fi
+   #else
+   #   vcsh mr pull github_https master --rebase
+   #fi
    vcsh write-gitignore vcs
 
 push     =
-   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
       vcsh mr push origin master
-   else
-      vcsh mr push github_https master
-   fi
+   #else
+   #   vcsh mr push github_https master
+   #fi
 
 status   = vcsh mr status --short
 gc       = vcsh mr gc
