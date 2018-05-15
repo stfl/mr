@@ -1,7 +1,7 @@
 [$HOME/.config/vcsh/repo.d/zsh.frq.git]
 checkout =
    GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" \
-      vcsh clone git@bitbucket.org:stefanlendl/zsh.frq.git || vcsh zsh.frq checkout master --force
+      vcsh clone git@my.bitbucket.org:stefanlendl/zsh.frq.git || vcsh zsh.frq checkout master --force
    echo "#\!/bin/sh\necho "running post-commit hook"\ngit push origin master" \
          >| ~/.config/vcsh/repo.d/zsh.frq.git/hooks/post-commit
    vcsh write-gitignore zsh.frq
@@ -13,6 +13,7 @@ update   =
 push     = vcsh zsh.frq push origin master
 status   = vcsh zsh.frq status --short
 gc       = return 0
+order 100
 
 
 [$HOME/.local/repos/Plugin-ReleaseNotes]
