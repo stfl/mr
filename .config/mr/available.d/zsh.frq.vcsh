@@ -13,7 +13,7 @@ update   =
 push     = vcsh zsh.frq push origin master
 status   = vcsh zsh.frq status --short
 gc       = return 0
-order 100
+order = 20
 
 
 [$HOME/.local/repos/Plugin-ReleaseNotes]
