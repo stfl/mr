@@ -26,6 +26,7 @@ push     =
 
 status   = vcsh zsh status --short
 gc       = vcsh zsh gc
+order = 7
 
 
 [$HOME/.local/repos/fasd/]
