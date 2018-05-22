@@ -3,7 +3,7 @@ checkout =
    if ssh -T git@github.com 2>&1 | grep -q successfully; then
       vcsh clone git@github.com:stfl/mr.git || vcsh mr checkout master --force
    else
-      vcsh clone https://github.com/stfl/mr.git || vcsh dotgui checkout master --force
+      vcsh clone https://github.com/stfl/mr.git || vcsh mr checkout master --force
    fi
    # vcsh mr remote add github_https https://github.com/stfl/mr.git
    ln -sf ${HOME}/.config/mr/post-commit ${HOME}/.config/vcsh/repo.d/mr.git/hooks/
@@ -15,7 +15,7 @@ update   =
    #else
    #   vcsh mr pull github_https master --rebase
    #fi
-   vcsh write-gitignore vcs
+   vcsh write-gitignore mr
 
 push     =
    #if ssh -T git@github.com 2>&1 | grep -q successfully; then
