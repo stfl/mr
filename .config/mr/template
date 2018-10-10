@@ -22,3 +22,5 @@ push     =
 
 status   = vcsh <repo> status --short
 gc       = vcsh <repo> gc
+
+# vim: set ft=zsh

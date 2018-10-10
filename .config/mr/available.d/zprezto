@@ -1,9 +1,0 @@
-["${ZDOTDIR:-$HOME}/.zprezto"]
-checkout =
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-  for rcfile in $(ls -1 ${ZDOTDIR:-$HOME}/.zprezto/runcoms/ | grep -v README); do
-    ln -s "${ZDOTDIR:-$HOME}/.zprezto/runcoms/$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile}"
-  done
-update  = git pull && git submodule update --init --recursive
-push    = return 0 # read-only
-order   = 5
