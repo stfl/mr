@@ -1,0 +1,7 @@
+["$HOME/.config/zplug"]
+checkout = git clone https://github.com/zplug/zplug $HOME/.config/zplug
+update  = git pull
+push    = return 0 # read-only
+order   = 5
+
+# vim: set ft=zsh

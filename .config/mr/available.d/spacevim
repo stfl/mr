@@ -1,0 +1,38 @@
+[$HOME/.SpaceVim.d]
+checkout =
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      git clone git@github.com:stfl/spacevim.d.git $HOME/.SpaceVim.d
+   else
+      git clone https://github.com/stfl/spacevim.d.git $HOME/.SpaceVim.d
+   fi
+
+update   =
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      git pull origin master --rebase
+   #else
+   #   git pull github_https master --rebase
+   #fi
+
+push     =
+   #if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      git push origin master
+   #else
+   #   vcsh spacevim push github_https master
+   #fi
+
+status   = git status --short
+
+[$HOME/.SpaceVim]
+checkout =
+   if ssh -T git@github.com 2>&1 | grep -q successfully; then
+      git clone git@github.com:SpaceVim/SpaceVim.git $HOME/.SpaceVim
+   else
+      git clone https://github.com/SpaceVim/SpaceVim.git ${HOME}/.SpaceVim
+   fi
+   ln -sf ${HOME}/.SpaceVim ${HOME}/.config/nvim
+   ln -sf ${HOME}/.SpaceVim ${HOME}/.vim
+
+update = git pull origin master --rebase
+push   = return 0
+status = git status --short
+
