@@ -32,7 +32,7 @@ checkout =
    ln -sf ${HOME}/.SpaceVim ${HOME}/.config/nvim
    ln -sf ${HOME}/.SpaceVim ${HOME}/.vim
 
-update = git pull origin master --rebase
+update = echo "vim +SPUpdate"
 push   = return 0
 status = git status --short
 
